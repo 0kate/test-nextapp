@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-nextapp
+  labels:
+    app: test-nextapp
+spec:
+  selector:
+    matchLabels:
+      app: test-nextapp
+  template:
+    metadata:
+      labels:
+        app: test-nextapp
+    spec:
+      containers:
+        - name: test-nextapp
+          image: test-nextapp:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
